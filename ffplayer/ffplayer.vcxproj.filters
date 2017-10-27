@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{21b87128-dfad-4038-b089-f1f1bf24d068}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -33,6 +36,27 @@
     <ClInclude Include="Resource.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="common\AVDecode.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\FFmpeg.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\MiniDump.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\PrivateProfile.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\singleton.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalData.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageDec.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ffplayer.cpp">
@@ -43,6 +67,15 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="common\AVDecode.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\MiniDump.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\PrivateProfile.cpp">
+      <Filter>Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -32,11 +32,15 @@
 
 #include <afxcontrolbars.h>     // MFC의 리본 및 컨트롤 막대 지원
 
+//여기부터 추가
+#include <FFmpeg.h>
+//#include "SDL.h"
+//#include "SDL_thread.h"
+//#include "SDL_ttf.h"
+#include "MessageDec.h"
 
-
-
-
-
+//문자열 컨버전을 위한 헤더
+#include <atlconv.h>
 
 
 
@@ -50,4 +54,68 @@
 #endif
 #endif
 
+#define BUF_SIZE	1024*24
 
+inline void DebugAndLogPrint(LPCTSTR fmt, ...) {
+	TCHAR szBuffer[BUF_SIZE];
+	ZeroMemory(szBuffer, BUF_SIZE);
+
+	try {
+		va_list argptr;
+		va_start(argptr, fmt);
+		_vsntprintf_s(szBuffer, BUF_SIZE, fmt, argptr);
+		va_end(argptr);
+
+		CString strDebugMsg;
+		strDebugMsg.Format(_T("[KJPlayer] : %s\n"), szBuffer);
+
+		OutputDebugString(strDebugMsg);
+	}
+	catch (...) {
+		CString strDebugMsg;
+		strDebugMsg.Format(_T("[KJPlayer] : DebugAndLogPrint(%d)\n"), GetLastError());
+		OutputDebugString(strDebugMsg);
+	}
+}
+
+inline void DebugAndLogPrintA(LPCSTR fmt, ...) {
+	char szBuffer[BUF_SIZE];
+	ZeroMemory(szBuffer, BUF_SIZE);
+
+	try {
+		va_list argptr;
+		va_start(argptr, fmt);
+		_vsnprintf_s(szBuffer, BUF_SIZE, fmt, argptr);
+		va_end(argptr);
+
+		CStringA strDebugMsg;
+		strDebugMsg.Format("[KJPlayer] : %s\n", szBuffer);
+
+		OutputDebugStringA(strDebugMsg);
+	}
+	catch (...) {
+		CStringA strDebugMsg;
+		strDebugMsg.Format("[KJPlayer] : DebugAndLogPrintA(%d)\n", GetLastError());
+		OutputDebugStringA(strDebugMsg);
+	}
+}
+
+inline static BOOL WaitThreadEnd(CWinThread* pWinThread, int nWaitMilSec, LPCTSTR szMSG)
+{
+	if (!pWinThread)
+		return 0;
+
+	DebugAndLogPrint(_T("%s in - %s"), _T(__FUNCTION__), szMSG);
+
+	DWORD dwExit = 0;
+	DWORD dwRetCode = WAIT_OBJECT_0;
+_gRetry: dwRetCode = WaitForSingleObject(pWinThread->m_hThread, nWaitMilSec);
+	if (dwRetCode == WAIT_TIMEOUT || dwRetCode == STILL_ACTIVE)
+	{
+		goto _gRetry;
+	}
+
+	DebugAndLogPrint(_T("%s out - %s"), _T(__FUNCTION__), szMSG);
+
+	return 0;
+}

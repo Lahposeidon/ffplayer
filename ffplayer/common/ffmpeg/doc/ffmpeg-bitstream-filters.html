@@ -1,28 +1,37 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>
-      FFmpeg Bitstream Filters Documentation
-    </title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.min.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>FFmpeg documentation</title>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="style.min.css" />
+
+<meta name="description" content="FFmpeg Bitstream Filters Documentation: ">
+<meta name="keywords" content="FFmpeg documentation : FFmpeg Bitstream Filters ">
+<meta name="Generator" content="texi2html 5.0">
+<!-- Created on October 16, 2017 by texi2html 5.0 -->
+<!--
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
   <body>
     <div class="container">
-      <h1>
-      FFmpeg Bitstream Filters Documentation
-      </h1>
-<div align="center">
-</div>
 
-
+<h1 class="titlefont">FFmpeg Bitstream Filters Documentation</h1>
+<hr>
 <a name="SEC_Top"></a>
 
 <a name="SEC_Contents"></a>
-<h2 class="contents-heading">Table of Contents</h2>
+<h1>Table of Contents</h1>
 
 <div class="contents">
 
@@ -44,9 +53,12 @@
     <li><a name="toc-mp3decomp" href="#mp3decomp">2.12 mp3decomp</a></li>
     <li><a name="toc-mpeg4_005funpack_005fbframes" href="#mpeg4_005funpack_005fbframes">2.13 mpeg4_unpack_bframes</a></li>
     <li><a name="toc-noise" href="#noise">2.14 noise</a></li>
-    <li><a name="toc-remove_005fextra" href="#remove_005fextra">2.15 remove_extra</a></li>
-    <li><a name="toc-text2movsub-1" href="#text2movsub-1">2.16 text2movsub</a></li>
-    <li><a name="toc-vp9_005fsuperframe" href="#vp9_005fsuperframe">2.17 vp9_superframe</a></li>
+    <li><a name="toc-null" href="#null">2.15 null</a></li>
+    <li><a name="toc-remove_005fextra" href="#remove_005fextra">2.16 remove_extra</a></li>
+    <li><a name="toc-text2movsub-1" href="#text2movsub-1">2.17 text2movsub</a></li>
+    <li><a name="toc-vp9_005fsuperframe" href="#vp9_005fsuperframe">2.18 vp9_superframe</a></li>
+    <li><a name="toc-vp9_005fsuperframe_005fsplit" href="#vp9_005fsuperframe_005fsplit">2.19 vp9_superframe_split</a></li>
+    <li><a name="toc-vp9_005fraw_005freorder" href="#vp9_005fraw_005freorder">2.20 vp9_raw_reorder</a></li>
   </ul></li>
   <li><a name="toc-See-Also" href="#See-Also">3 See Also</a></li>
   <li><a name="toc-Authors" href="#Authors">4 Authors</a></li>
@@ -54,8 +66,9 @@
 </div>
 
 
+<hr size="6">
 <a name="Description"></a>
-<h2 class="chapter">1 Description<span class="pull-right"><a class="anchor hidden-xs" href="#Description" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-Description" aria-hidden="true">TOC</a></span></h2>
+<h1 class="chapter"><a href="ffmpeg-bitstream-filters.html#toc-Description">1 Description</a></h1>
 
 <p>This document describes the bitstream filters provided by the
 libavcodec library.
@@ -65,7 +78,7 @@ bitstream level modifications without performing decoding.
 </p>
 
 <a name="Bitstream-Filters"></a>
-<h2 class="chapter">2 Bitstream Filters<span class="pull-right"><a class="anchor hidden-xs" href="#Bitstream-Filters" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-Bitstream-Filters" aria-hidden="true">TOC</a></span></h2>
+<h1 class="chapter"><a href="ffmpeg-bitstream-filters.html#toc-Bitstream-Filters">2 Bitstream Filters</a></h1>
 
 <p>When you configure your FFmpeg build, all the supported bitstream
 filters are enabled by default. You can list all available ones using
@@ -91,7 +104,7 @@ name after a &rsquo;=&rsquo;.
 with their parameters, if any.
 </p>
 <a name="aac_005fadtstoasc"></a>
-<h3 class="section">2.1 aac_adtstoasc<span class="pull-right"><a class="anchor hidden-xs" href="#aac_005fadtstoasc" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-aac_005fadtstoasc" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-aac_005fadtstoasc">2.1 aac_adtstoasc</a></h2>
 
 <p>Convert MPEG-2/4 AAC ADTS to an MPEG-4 Audio Specific Configuration
 bitstream.
@@ -105,18 +118,18 @@ to MOV/MP4 files and related formats such as 3GP or M4A. Please note
 that it is auto-inserted for MP4A-LATM and MOV/MP4 and related formats.
 </p>
 <a name="chomp"></a>
-<h3 class="section">2.2 chomp<span class="pull-right"><a class="anchor hidden-xs" href="#chomp" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-chomp" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-chomp">2.2 chomp</a></h2>
 
 <p>Remove zero padding at the end of a packet.
 </p>
 <a name="dca_005fcore"></a>
-<h3 class="section">2.3 dca_core<span class="pull-right"><a class="anchor hidden-xs" href="#dca_005fcore" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-dca_005fcore" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-dca_005fcore">2.3 dca_core</a></h2>
 
 <p>Extract the core from a DCA/DTS stream, dropping extensions such as
 DTS-HD.
 </p>
 <a name="dump_005fextra"></a>
-<h3 class="section">2.4 dump_extra<span class="pull-right"><a class="anchor hidden-xs" href="#dump_005fextra" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-dump_005fextra" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-dump_005fextra">2.4 dump_extra</a></h2>
 
 <p>Add extradata to the beginning of the filtered packets.
 </p>
@@ -125,7 +138,7 @@ It accepts the values:
 </p><dl compact="compact">
 <dt>&lsquo;<samp>a</samp>&rsquo;</dt>
 <dd><p>add extradata to all key packets, but only if <var>local_header</var> is
-set in the <samp>flags2</samp> codec context field
+set in the &lsquo;<samp>flags2</samp>&rsquo; codec context field
 </p>
 </dd>
 <dt>&lsquo;<samp>k</samp>&rsquo;</dt>
@@ -148,7 +161,7 @@ the header stored in extradata to the key packets:
 </pre></div>
 
 <a name="extract_005fextradata"></a>
-<h3 class="section">2.5 extract_extradata<span class="pull-right"><a class="anchor hidden-xs" href="#extract_005fextradata" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-extract_005fextradata" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-extract_005fextradata">2.5 extract_extradata</a></h2>
 
 <p>Extract the in-band extradata.
 </p>
@@ -161,14 +174,14 @@ container level). This latter form is called &quot;extradata&quot; in FFmpeg ter
 extradata.
 </p>
 <dl compact="compact">
-<dt><samp>remove</samp></dt>
+<dt>&lsquo;<samp>remove</samp>&rsquo;</dt>
 <dd><p>When this option is enabled, the long-term headers are removed from the
 bitstream after extraction.
 </p></dd>
 </dl>
 
 <a name="h264_005fmp4toannexb"></a>
-<h3 class="section">2.6 h264_mp4toannexb<span class="pull-right"><a class="anchor hidden-xs" href="#h264_005fmp4toannexb" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-h264_005fmp4toannexb" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-h264_005fmp4toannexb">2.6 h264_mp4toannexb</a></h2>
 
 <p>Convert an H.264 bitstream from length prefixed mode to start code
 prefixed mode (as defined in the Annex B of the ITU-T H.264
@@ -188,7 +201,7 @@ format with <code>ffmpeg</code>, you can use the command:
 <code>mpegts</code>) and raw H.264 (muxer <code>h264</code>) output formats.
 </p>
 <a name="hevc_005fmp4toannexb"></a>
-<h3 class="section">2.7 hevc_mp4toannexb<span class="pull-right"><a class="anchor hidden-xs" href="#hevc_005fmp4toannexb" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-hevc_005fmp4toannexb" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-hevc_005fmp4toannexb">2.7 hevc_mp4toannexb</a></h2>
 
 <p>Convert an HEVC/H.265 bitstream from length prefixed mode to start code
 prefixed mode (as defined in the Annex B of the ITU-T H.265
@@ -209,12 +222,12 @@ format with <code>ffmpeg</code>, you can use the command:
 <code>hevc</code>) output formats.
 </p>
 <a name="imxdump"></a>
-<h3 class="section">2.8 imxdump<span class="pull-right"><a class="anchor hidden-xs" href="#imxdump" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-imxdump" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-imxdump">2.8 imxdump</a></h2>
 
 <p>Modifies the bitstream to fit in MOV and to be usable by the Final Cut
 Pro decoder. This filter only applies to the mpeg2video codec, and is
 likely not needed for Final Cut Pro 7 and newer with the appropriate
-<samp>-tag:v</samp>.
+&lsquo;<samp>-tag:v</samp>&rsquo;.
 </p>
 <p>For example, to remux 30 MB/sec NTSC IMX to MOV:
 </p>
@@ -223,7 +236,7 @@ likely not needed for Final Cut Pro 7 and newer with the appropriate
 </pre></div>
 
 <a name="mjpeg2jpeg"></a>
-<h3 class="section">2.9 mjpeg2jpeg<span class="pull-right"><a class="anchor hidden-xs" href="#mjpeg2jpeg" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-mjpeg2jpeg" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-mjpeg2jpeg">2.9 mjpeg2jpeg</a></h2>
 
 <p>Convert MJPEG/AVI1 packets to full JPEG/JFIF packets.
 </p>
@@ -261,13 +274,14 @@ ffmpeg -i frame_%d.jpg -c:v copy rotated.avi
 </pre></div>
 
 <a name="mjpegadump"></a>
-<h3 class="section">2.10 mjpegadump<span class="pull-right"><a class="anchor hidden-xs" href="#mjpegadump" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-mjpegadump" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-mjpegadump">2.10 mjpegadump</a></h2>
 
 <p>Add an MJPEG A header to the bitstream, to enable decoding by
 Quicktime.
 </p>
-<a name="mov2textsub"></a><a name="mov2textsub-1"></a>
-<h3 class="section">2.11 mov2textsub<span class="pull-right"><a class="anchor hidden-xs" href="#mov2textsub-1" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-mov2textsub-1" aria-hidden="true">TOC</a></span></h3>
+<p><a name="mov2textsub"></a>
+</p><a name="mov2textsub-1"></a>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-mov2textsub-1">2.11 mov2textsub</a></h2>
 
 <p>Extract a representable text file from MOV subtitles, stripping the
 metadata header from each subtitle packet.
@@ -275,12 +289,12 @@ metadata header from each subtitle packet.
 <p>See also the <a href="#text2movsub">text2movsub</a> filter.
 </p>
 <a name="mp3decomp"></a>
-<h3 class="section">2.12 mp3decomp<span class="pull-right"><a class="anchor hidden-xs" href="#mp3decomp" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-mp3decomp" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-mp3decomp">2.12 mp3decomp</a></h2>
 
 <p>Decompress non-standard compressed MP3 audio headers.
 </p>
 <a name="mpeg4_005funpack_005fbframes"></a>
-<h3 class="section">2.13 mpeg4_unpack_bframes<span class="pull-right"><a class="anchor hidden-xs" href="#mpeg4_005funpack_005fbframes" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-mpeg4_005funpack_005fbframes" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-mpeg4_005funpack_005fbframes">2.13 mpeg4_unpack_bframes</a></h2>
 
 <p>Unpack DivX-style packed B-frames.
 </p>
@@ -301,30 +315,44 @@ DivX-style packed B-frames using <code>ffmpeg</code>, you can use the command:
 </pre></div>
 
 <a name="noise"></a>
-<h3 class="section">2.14 noise<span class="pull-right"><a class="anchor hidden-xs" href="#noise" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-noise" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-noise">2.14 noise</a></h2>
 
-<p>Damages the contents of packets without damaging the container. Can be
-used for fuzzing or testing error resilience/concealment.
+<p>Damages the contents of packets or simply drops them without damaging the
+container. Can be used for fuzzing or testing error resilience/concealment.
 </p>
 <p>Parameters:
-A numeral string, whose value is related to how often output bytes will
+</p><dl compact="compact">
+<dt>&lsquo;<samp>amount</samp>&rsquo;</dt>
+<dd><p>A numeral string, whose value is related to how often output bytes will
 be modified. Therefore, values below or equal to 0 are forbidden, and
 the lower the more frequent bytes will be modified, with 1 meaning
 every byte is modified.
-</p>
-<div class="example">
+</p></dd>
+<dt>&lsquo;<samp>dropamount</samp>&rsquo;</dt>
+<dd><p>A numeral string, whose value is related to how often packets will be dropped.
+Therefore, values below or equal to 0 are forbidden, and the lower the more
+frequent packets will be dropped, with 1 meaning every packet is dropped.
+</p></dd>
+</dl>
+
+<p>The following example applies the modification to every byte but does not drop
+any packets.
+</p><div class="example">
 <pre class="example">ffmpeg -i INPUT -c copy -bsf noise[=1] output.mkv
 </pre></div>
-<p>applies the modification to every byte.
+
+<a name="null"></a>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-null">2.15 null</a></h2>
+<p>This bitstream filter passes the packets through unchanged.
 </p>
 <a name="remove_005fextra"></a>
-<h3 class="section">2.15 remove_extra<span class="pull-right"><a class="anchor hidden-xs" href="#remove_005fextra" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-remove_005fextra" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-remove_005fextra">2.16 remove_extra</a></h2>
 
 <p>Remove extradata from packets.
 </p>
 <p>It accepts the following parameter:
 </p><dl compact="compact">
-<dt><samp>freq</samp></dt>
+<dt>&lsquo;<samp>freq</samp>&rsquo;</dt>
 <dd><p>Set which frame types to remove extradata from.
 </p>
 <dl compact="compact">
@@ -344,8 +372,9 @@ every byte is modified.
 </dd>
 </dl>
 
-<a name="text2movsub"></a><a name="text2movsub-1"></a>
-<h3 class="section">2.16 text2movsub<span class="pull-right"><a class="anchor hidden-xs" href="#text2movsub-1" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-text2movsub-1" aria-hidden="true">TOC</a></span></h3>
+<p><a name="text2movsub"></a>
+</p><a name="text2movsub-1"></a>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-text2movsub-1">2.17 text2movsub</a></h2>
 
 <p>Convert text subtitles to MOV subtitles (as used by the <code>mov_text</code>
 codec) with metadata headers.
@@ -353,22 +382,33 @@ codec) with metadata headers.
 <p>See also the <a href="#mov2textsub">mov2textsub</a> filter.
 </p>
 <a name="vp9_005fsuperframe"></a>
-<h3 class="section">2.17 vp9_superframe<span class="pull-right"><a class="anchor hidden-xs" href="#vp9_005fsuperframe" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-vp9_005fsuperframe" aria-hidden="true">TOC</a></span></h3>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-vp9_005fsuperframe">2.18 vp9_superframe</a></h2>
 
 <p>Merge VP9 invisible (alt-ref) frames back into VP9 superframes. This
 fixes merging of split/segmented VP9 streams where the alt-ref frame
 was split from its visible counterpart.
 </p>
+<a name="vp9_005fsuperframe_005fsplit"></a>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-vp9_005fsuperframe_005fsplit">2.19 vp9_superframe_split</a></h2>
+
+<p>Split VP9 superframes into single frames.
+</p>
+<a name="vp9_005fraw_005freorder"></a>
+<h2 class="section"><a href="ffmpeg-bitstream-filters.html#toc-vp9_005fraw_005freorder">2.20 vp9_raw_reorder</a></h2>
+
+<p>Given a VP9 stream with correct timestamps but possibly out of order,
+insert additional show-existing-frame packets to correct the ordering.
+</p>
 
 <a name="See-Also"></a>
-<h2 class="chapter">3 See Also<span class="pull-right"><a class="anchor hidden-xs" href="#See-Also" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-See-Also" aria-hidden="true">TOC</a></span></h2>
+<h1 class="chapter"><a href="ffmpeg-bitstream-filters.html#toc-See-Also">3 See Also</a></h1>
 
 <p><a href="ffmpeg.html">ffmpeg</a>, <a href="ffplay.html">ffplay</a>, <a href="ffprobe.html">ffprobe</a>, <a href="ffserver.html">ffserver</a>,
 <a href="libavcodec.html">libavcodec</a>
 </p>
 
 <a name="Authors"></a>
-<h2 class="chapter">4 Authors<span class="pull-right"><a class="anchor hidden-xs" href="#Authors" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-Authors" aria-hidden="true">TOC</a></span></h2>
+<h1 class="chapter"><a href="ffmpeg-bitstream-filters.html#toc-Authors">4 Authors</a></h1>
 
 <p>The FFmpeg developers.
 </p>
@@ -378,13 +418,10 @@ was split from its visible counterpart.
 online repository at <a href="http://source.ffmpeg.org">http://source.ffmpeg.org</a>.
 </p>
 <p>Maintainers for the specific components are listed in the file
-<samp>MAINTAINERS</samp> in the source code tree.
+&lsquo;<tt>MAINTAINERS</tt>&rsquo; in the source code tree.
 </p>
 
-
-      <p style="font-size: small;">
-        This document was generated using <a href="http://www.gnu.org/software/texinfo/"><em>makeinfo</em></a>.
-      </p>
     </div>
   </body>
 </html>
+
