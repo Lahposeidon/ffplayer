@@ -1,1 +1,2 @@
-ffplayer/common/ffmpeg/doc/* linguist-vendored
+ffplayer/common/ffmpeg/* linguist-vendored
+*.md linguist-vendored
