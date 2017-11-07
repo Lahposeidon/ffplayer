@@ -1,2 +1,4 @@
 ffplayer/common/ffmpeg/* linguist-vendored
 *.md linguist-vendored
+ffplayer/common/sdl2/* linguist-vendored
+ffplayer/common/sdl2_ttf/* linguist-vendored
